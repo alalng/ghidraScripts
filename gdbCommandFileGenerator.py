@@ -106,7 +106,8 @@ def genFuncs(funcs):
             localVars += "echo Parameters:\\n\n"
             for arg in i.params:
                 localVars += "echo Name: {}\n".format(arg.name)
-                localVars += "echo , Value: ${}\\n\n".format(arg.value)
+                localVars += "echo , Value: \n"
+                localVars += "p/x ${}\n".format(arg.value)
         if i.locals != []:
             localVars += "echo local variables:\\n\n"
             for local in i.locals:
